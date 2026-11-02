@@ -1,0 +1,316 @@
+/* =========================================
+   1. CSS VARIABLES (Our Color Palette)
+   ========================================= */
+:root {
+    --primary-color: #0066cc; /* Professional Scientific Blue */
+    --primary-hover: #004c99;
+    --text-dark: #334155; /* Slate Gray for text (softer than black) */
+    --text-light: #64748b;
+    --bg-light: #f8fafc; /* Very subtle cool gray/blue background */
+    --white: #ffffff;
+    --border-radius: 8px;
+    --transition: all 0.3s ease;
+}
+
+/* =========================================
+   2. BASE RESET & TYPOGRAPHY
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-dark);
+    background-color: var(--bg-light);
+    line-height: 1.6;
+}
+
+/* Container to keep content centered and not too wide */
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* =========================================
+   3. HEADER & NAVIGATION (Mobile Default)
+   ========================================= */
+.site-header {
+    background-color: var(--white);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 15px 0;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+/* Mobile Menu Button */
+.mobile-menu-toggle {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--text-dark);
+    cursor: pointer;
+}
+
+/* Hide navigation links on mobile by default */
+.main-nav {
+    display: none; 
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--white);
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+/* We will add this class using JavaScript in Step 4 */
+.main-nav.active {
+    display: flex;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 600;
+    padding: 10px 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+/* =========================================
+   4. BUTTONS
+   ========================================= */
+.btn-primary {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+}
+
+.btn-outline {
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color) !important; /* Force color on mobile nav */
+    border-radius: var(--border-radius);
+    text-align: center;
+}
+
+/* =========================================
+   5. HERO SECTION
+   ========================================= */
+.hero {
+    padding: 80px 0;
+    text-align: center;
+    background-color: var(--white);
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: #0f172a; /* Darker slate for headings */
+}
+
+.hero p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 30px;
+}
+
+/* =========================================
+   6. SOLUTIONS / CAPABILITIES SECTION
+   ========================================= */
+.solutions {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.solutions h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    color: var(--text-light);
+    margin-bottom: 40px;
+}
+
+/* CSS Grid for Mobile (1 column) */
+.grid-3 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+.card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+    transition: var(--transition);
+    border: 1px solid #e2e8f0;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+}
+
+.card h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+/* =========================================
+   7. FOOTER
+   ========================================= */
+.site-footer {
+    background-color: #0f172a; /* Very dark blue/gray */
+    color: var(--white);
+    padding: 60px 0 20px;
+}
+
+.footer-info p {
+    color: #94a3b8;
+    margin-top: 10px;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #1e293b;
+    color: #94a3b8;
+    font-size: 0.9rem;
+}
+
+/* =========================================
+   8. MEDIA QUERIES (Desktop & Tablet)
+   ========================================= */
+@media (min-width: 768px) {
+    /* Change Hero text size for desktop */
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+    
+    .hero p {
+        max-width: 700px;
+        margin: 0 auto 30px;
+    }
+
+    /* Change Grid to 3 columns side-by-side */
+    .grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Fix Navigation for Desktop */
+    .mobile-menu-toggle {
+        display: none; /* Hide hamburger menu */
+    }
+
+    .main-nav {
+        display: flex; /* Show links side-by-side */
+        flex-direction: row;
+        position: static;
+        width: auto;
+        background: none;
+        padding: 0;
+        box-shadow: none;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .main-nav a {
+        border-bottom: none;
+        padding: 8px 16px;
+    }
+
+    .btn-outline {
+        padding: 8px 20px;
+    }
+}
+/* =========================================
+   9. INNER PAGES & FORMS
+   ========================================= */
+.page-header {
+    background-color: #f1f5f9;
+    padding: 60px 0;
+    text-align: center;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    color: #0f172a;
+    margin-bottom: 10px;
+}
+
+.page-header p {
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+.contact-form {
+    background: var(--white);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border: 1px solid #e2e8f0;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+}
