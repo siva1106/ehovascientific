@@ -314,3 +314,24 @@ body {
     border-color: var(--primary-color);
     box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
 }
+/* =========================================
+   10. CUSTOM LOGO & BRAND SIZING
+   ========================================= */
+.brand-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Space between the logo image and the text */
+    text-decoration: none;
+}
+
+.site-logo {
+    max-height: 40px; /* Keeps the logo image nicely sized */
+    width: auto;
+    display: block;
+}
+
+.brand-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
