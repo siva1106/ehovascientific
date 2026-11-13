@@ -335,3 +335,25 @@ body {
     font-weight: 700;
     color: var(--primary-color);
 }
+/* =========================================
+   11. MOBILE HEADER ADJUSTMENTS
+   ========================================= */
+@media (max-width: 767px) {
+    .nav-container {
+        justify-content: flex-start; /* Aligns hamburger and logo together on the left */
+        gap: 15px; /* Space between the hamburger icon and your logo */
+    }
+
+    .mobile-menu-toggle {
+        order: -1; /* Forces the hamburger button to be first (far left) */
+    }
+
+    .brand-text {
+        font-size: 1.15rem; /* Slightly smaller on phones so everything fits nicely */
+        white-space: nowrap; /* Keeps "ehova Scientific" on one single line */
+    }
+
+    .site-logo {
+        max-height: 32px; /* Adjusts logo size slightly to fit mobile screens better */
+    }
+}
